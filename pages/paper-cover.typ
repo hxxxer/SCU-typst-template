@@ -26,38 +26,71 @@
     #v(20pt)
 
     #let info_value(body) = {
+      // 判断 body 是否为数组
+      if type(body) == array {
+        // 如果是数组，遍历每一项并生成多个 rect
+        [
+          #for item in body {
+            // v(0pt) 
+            rect(
+              width: 100%,
+              inset: (x: 1pt, bottom: 1pt),
+              stroke: (
+                bottom: 1pt + black,
+              ),
+              text(
+                font: fangsong,
+                size: 16pt,
+                bottom-edge: "descender",
+                weight: "bold",
+              )[
+                #item
+              ]
+            )
+            v(-8pt)
+          }
+        ]
+        v(8pt)
+      } else {
+        // 如果不是数组（即普通文本），保持原有逻辑不变
+        rect(
+          width: 100%,
+          inset: (x: 1pt, top: 5.5pt, bottom: 1pt),
+          stroke: (
+            bottom: 1pt + black,
+          ),
+          text(
+            font: fangsong,
+            size: 16pt,
+            bottom-edge: "descender",
+            weight: "bold",
+          )[
+            #body
+          ]
+        )
+      }
+    }
+    
+    #let info_key(body) = {
       rect(
         width: 100%,
-        inset: 1pt,
-        stroke: (
-          bottom: 1pt + black,
-        ),
+        inset: (x: 1pt, y: 5.5pt),
+        stroke: none,
         text(
           font: fangsong,
           size: 16pt,
-          bottom-edge: "descender",
           weight: "bold",
         )[
           #body
         ]
-      ) 
-    }
-    
-    #let info_key(body) = {
-      text(
-        font: fangsong,
-        size: 16pt,
-        weight: "bold",
-      )[
-        #body
-      ]
+      )
     }
 
     #v(20pt)
 
     #grid(
       columns: (70pt, 300pt),
-      rows: (25pt),
+      rows: (auto),
       gutter: 3pt,
       info_key("题　　目"),
       info_value(title),
