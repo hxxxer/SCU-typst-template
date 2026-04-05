@@ -55,7 +55,7 @@
         // 如果不是数组（即普通文本），保持原有逻辑不变
         rect(
           width: 100%,
-          inset: (x: 1pt, top: 7pt, bottom: 1pt),
+          inset: (x: 1pt, top: 5.5pt, bottom: 1pt),
           stroke: (
             bottom: 1pt + black,
           ),
@@ -73,8 +73,8 @@
     
     #let info_key(body) = {
       rect(
-        // width: 100%,
-        inset: (x: 1pt, y: 4pt),
+        width: 100%,
+        inset: (x: 1pt, y: 5.5pt),
         stroke: none,
         text(
           font: fangsong,
