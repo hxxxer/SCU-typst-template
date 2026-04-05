@@ -60,9 +60,15 @@
   /* 封面与原创性声明 */
 
   // 封面
-  paper_cover(cover_logo_path: "../assets/scu_black.png", 
-    anonymous, title, school, author, id, mentor, date, grade, major
-  )
+  if (title_array != ()) {
+    paper_cover(cover_logo_path: "../assets/scu_black.png", 
+      anonymous, title_array, school, author, id, mentor, date, grade, major
+    )
+  } else {
+    paper_cover(cover_logo_path: "../assets/scu_black.png", 
+      anonymous, title, school, author, id, mentor, date, grade, major
+    )
+  }
 
   /* 目录与摘要 */
   // 整体页眉
