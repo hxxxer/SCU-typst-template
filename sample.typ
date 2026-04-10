@@ -19,6 +19,7 @@
 // ============================================================
 #show: project.with(
   anonymous: false,
+  center_headings: true,
   title: "基于Typst的川大计院毕业论文模版",
   // title_array: (),
   author: "你的名字",
